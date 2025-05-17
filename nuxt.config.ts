@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
   ],
 
-
   tailwindcss: {
     exposeConfig: true,
     editorSupport: true,
@@ -18,6 +17,8 @@ export default defineNuxtConfig({
 
   colorMode: {
     classSuffix: "",
+    preference:'system',
+    fallback:'light'
   },
 
   imports: {
