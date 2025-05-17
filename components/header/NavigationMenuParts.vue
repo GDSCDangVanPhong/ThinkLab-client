@@ -1,46 +1,57 @@
 <script setup lang="ts">
+  import LearnMore from "~/components/header/LearnMore.vue";
 
+  const items= [
+    {
+      iconSrc : 'lucide:handshake',
+      title : 'Collaboration Editing',
+      description : 'Write and edit documents in real-time with multiple collaborators.',
+    },
+    {
+      iconSrc : "lucide:brain-cog",
+      title : 'AI Writing & Editing Support',
+      description : 'Get suggestions, grammar checks, and style improvements powered by AI.',
+    },
+    {
+      iconSrc : "lucide:history",
+      title : 'Version History',
+      description : 'Review and restore previous document versions anytime.',
+    },
+    {
+      iconSrc : "lucide:save",
+      title : 'Auto Saving',
+      description : 'Your work is saved automatically — no data loss, ever.',
+    },
+
+  ]
 </script>
 
 <template>
-  <UiNavigationMenu>
+  <UiNavigationMenu >
     <UiNavigationMenuList>
       <UiNavigationMenuItem>
-        <UiNavigationMenuTrigger title="Beach day" />
-        <UiNavigationMenuContent>
-          <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
-            <img
-                src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
-                alt="Beach"
-                class="h-full w-full rounded-md object-cover"
-            />
-
+        <UiNavigationMenuLink>
+          <UiButton variant="ghost" >Home</UiButton>
+        </UiNavigationMenuLink>
+      </UiNavigationMenuItem>
+      <UiNavigationMenuItem >
+        <UiNavigationMenuTrigger title="Features" />
+        <UiNavigationMenuContent >
+          <div class="grid w-[700px] grid-cols-2 gap-5 p-4">
+            <HeaderFeaturePart v-for="item in items" :icon-src="item.iconSrc" :title="item.title" :description="item.description" />
           </div>
         </UiNavigationMenuContent>
       </UiNavigationMenuItem>
       <UiNavigationMenuItem>
-        <UiNavigationMenuTrigger title="Components" />
-        <UiNavigationMenuContent>
-
-        </UiNavigationMenuContent>
+        <UiNavigationMenuLink>
+            <UiButton variant="ghost" >Pricing </UiButton>
+        </UiNavigationMenuLink>
       </UiNavigationMenuItem>
       <UiNavigationMenuItem>
-        <UiNavigationMenuTrigger title="Learn more" />
+        <UiNavigationMenuTrigger title="Resources"/>
         <UiNavigationMenuContent>
-          <div class="grid w-[500px] grid-cols-2 place-items-center gap-5 p-3">
-
-            <img
-                src="https://www.radix-vue.com/logo.svg"
-                alt="Radix Vue Logo"
-                class="h-full w-full"
-            />
-            <div>
-              <p class="text-lg font-semibold text-foreground">Radix Vue</p>
-              <p class="mt-2 text-muted-foreground">
-                Unstyled, accessible components for building high-quality design systems and web
-                apps in Vue.
-              </p>
-            </div>
+          <div class=" grid w-[700px] p-4 grid-cols-2 gap-5">
+          <LearnMore/>
           </div>
         </UiNavigationMenuContent>
       </UiNavigationMenuItem>
