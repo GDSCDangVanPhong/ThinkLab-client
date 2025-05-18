@@ -21,7 +21,7 @@ import {Icon} from "@iconify/vue";
 
 <template>
   <div v-for="item in items" class="hover:bg-accent rounded-md flex p-2 cursor-pointer">
-    <Icon  :icon="item.iconSrc" width="32" height="32" />
+    <Icon  :icon="item.iconSrc" width="24" height="24" />
     <div class="ml-4">
       <h3 class="font-semibold">{{item.title}}</h3>
       <span class="overflow-auto text-xs fo">{{item.description}}</span>

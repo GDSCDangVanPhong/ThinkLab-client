@@ -1,5 +1,7 @@
 export const useUserColorMode = () => {
     const ColorMode = useColorMode()
+
+    console.log(ColorMode.value)
     const toggleColorMode = (preference : string) => {
         if(preference == 'dark'){
             ColorMode.value = 'dark'
@@ -7,7 +9,7 @@ export const useUserColorMode = () => {
         else if(preference == 'light'){
             ColorMode.value = 'light'
         }
-        console.log(ColorMode.value)
+
     }
     return {
         ColorMode,
