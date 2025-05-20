@@ -5,7 +5,10 @@
 <template>
     <div class="mt-10">
       <LandingpageNewsCTA/>
-      <LandingpageBanner class="w-full mt-10"/>
+      <div class="px-20 rounded-lg">
+        <LandingpageBanner class="w-full mt-10 "/>
+      </div>
+
     </div>
 </template>
 

@@ -80,3 +80,32 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
+.animate-float3d {
+  width: 320px;
+  height: 320px;
+  animation: float3d 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3d {
+  0% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(0) translateZ(0) scale(1);
+
+  }
+  25% {
+    transform: rotateX(10deg) rotateY(15deg) translateY(-15px) translateZ(20px) scale(1.05);
+
+  }
+  50% {
+    transform: rotateX(15deg) rotateY(10deg) translateY(-20px) translateZ(30px) scale(1.1);
+
+  }
+  75% {
+    transform: rotateX(10deg) rotateY(5deg) translateY(-15px) translateZ(20px) scale(1.05);
+
+  }
+  100% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(0) translateZ(0) scale(1);
+
+  }
+}
