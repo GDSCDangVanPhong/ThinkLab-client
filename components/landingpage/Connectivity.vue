@@ -22,11 +22,14 @@
         studio apartment. Perfect for Nomads and Travellers.
       </p>
     </div>
-    <InspriraWorldMap
-        :dots="dots"
-        :map-color=" '#00000040'"
-        :map-bg-color=" 'white'"
-    />
+    <ClientOnly>
+      <InspriraWorldMap
+          :dots="dots"
+          :map-color=" '#00000040'"
+          :map-bg-color=" 'white'"
+      />
+    </ClientOnly>
+
   </div>
 </template>
 
