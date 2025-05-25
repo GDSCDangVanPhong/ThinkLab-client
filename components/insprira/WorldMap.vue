@@ -1,13 +1,16 @@
 <template>
   <div class="relative aspect-[2/1] w-full rounded-lg bg-white font-sans dark:bg-black">
-    <NuxtImg
-        :src="`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`"
-        class="pointer-events-none size-full select-none [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
-        alt="world map"
-        height="495"
-        width="1056"
-        :draggable="false"
-    />
+    <client-only>
+      <NuxtImg
+          :src="`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`"
+          class="pointer-events-none size-full select-none [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
+          alt="world map"
+          height="495"
+          width="1056"
+          :draggable="false"
+      />
+    </client-only>
+
     <svg
         ref="svgRef"
         view-box="0 0 800 400"
