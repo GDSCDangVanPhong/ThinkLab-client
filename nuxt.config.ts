@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/icon",
     "@nuxt/fonts",
+    "@nuxt/image",
   ],
 
   tailwindcss: {

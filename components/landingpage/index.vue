@@ -9,8 +9,8 @@
         <LandingpageBanner class="w-full mt-10 "/>
         <div class="w-full border">
           <LandingpageSuccessMetric class="w-full  border-b mb-5"/>
-          <LandingpageFeatureSpliter/>
-
+          <LandingpageFeatureSpliter class="border-b"/>
+          <LandingpageConnectivity class="px-10"/>
         </div>
         <div class="h-24"></div>
       </div>
