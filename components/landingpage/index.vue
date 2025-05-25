@@ -7,8 +7,12 @@
       <LandingpageNewsCTA/>
       <div class="px-20 rounded-lg">
         <LandingpageBanner class="w-full mt-10 "/>
-        <LandingpageSuccessMetric class="w-full"/>
-        <div class="h-10"></div>
+        <div class="w-full border">
+          <LandingpageSuccessMetric class="w-full  border-b mb-5"/>
+          <LandingpageFeatureSpliter/>
+
+        </div>
+        <div class="h-24"></div>
       </div>
 
     </div>
