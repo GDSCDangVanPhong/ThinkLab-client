@@ -4,8 +4,9 @@
 </script>
 
 <template>
-    <div class="h-[600px] border-t flex">
+    <div class="h-[650px] border-t flex">
         <LandingpageFeatureSpliterAutosave/>
+        <LandingpageFeatureSpliterCollaboration/>
     </div>
 </template>
 
