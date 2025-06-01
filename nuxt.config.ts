@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxt/image",
+    '@pinia/nuxt'
   ],
 
   tailwindcss: {

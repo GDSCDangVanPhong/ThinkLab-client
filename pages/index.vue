@@ -2,6 +2,9 @@
   <Header/>
   <Landingpage/>
 </template>
-<script setup lang="ts">
 
+<script setup lang="ts">
+definePageMeta({
+    colorMode : 'light'
+  })
 </script>
