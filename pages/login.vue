@@ -30,16 +30,16 @@
         </p>
         <p class="mt-4 text-sm text-muted-foreground">
           Don't have an account?
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
+          <NuxtLink  class="font-semibold text-primary underline-offset-2 hover:underline" to="/register"
           >Create account</NuxtLink
           >
         </p>
       </div>
     </div>
     <div class="hidden h-screen md:block md:w-1/2 lg:w-1/2">
-      <!-- eslint-disable-next-line vue/html-self-closing -->
+
       <img
-          src="https://images.unsplash.com/photo-1512551980832-13df02babc9e?q=60&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="../assets/image/download%20(2).jpg"
           alt="Login form image"
           class="size-full object-cover"
       />
@@ -75,7 +75,7 @@ const { handleSubmit, isSubmitting } = useForm<InferType<typeof LoginSchema>>({
   validationSchema: LoginSchema,
 });
 
-const submit = handleSubmit(async (_) => {
+const submit = handleSubmit(async () => {
   const result = await useLogin(input)
   if(!result){
     useToast().toast(

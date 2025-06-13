@@ -39,7 +39,7 @@
         {{ hint }}
       </p>
 
-      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-destructive">
+      <p v-if="errorMessage" key="errorMessage" class="mt-1.5 text-sm text-red-600">
         {{ errorMessage }}
       </p>
     </TransitionSlide>
