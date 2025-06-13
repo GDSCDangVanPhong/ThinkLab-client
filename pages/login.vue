@@ -8,10 +8,10 @@
         <form class="mt-10" @submit="submit">
           <fieldset :disabled="isSubmitting" class="grid gap-5">
             <div>
-              <UiVeeInput label="Email" type="email" name="email" placeholder="john@example.com" />
+              <UiVeeInput label="Email" type="email" name="email" v-model="input.email" placeholder="john@example.com" />
             </div>
             <div>
-              <UiVeeInput label="Password" type="password" name="password" />
+              <UiVeeInput label="Password" type="password" v-model="input.rawPassword" name="password" />
             </div>
             <div>
               <UiButton class="w-full" type="submit" text="Log in" />
@@ -50,11 +50,21 @@
 <script lang="ts" setup>
 import { object, string } from "yup";
 import type { InferType } from "yup";
+import type {SignInRequest} from "~/types/auth/auth";
+import {useLogin} from "~/composables/auth/useSignIn";
+import {redirect} from "~/composables/auth/useRedirectToGoogle";
 
 useSeoMeta({
   title: "Log in",
   description: "Enter your email & password to log in.",
 });
+const input = reactive<SignInRequest>(
+    {
+      email: "",
+      rawPassword : ""
+    }
+);
+
 
 const LoginSchema = object({
   email: string().email().required().label("Email"),
@@ -66,10 +76,18 @@ const { handleSubmit, isSubmitting } = useForm<InferType<typeof LoginSchema>>({
 });
 
 const submit = handleSubmit(async (_) => {
-
+  const result = await useLogin(input)
+  if(!result){
+    useToast().toast(
+        {
+          variant: "destructive",
+          description: "Login failed.",
+        }
+    )
+  }
 });
 
 const signInWithGoogle = () => {
-
+    redirect()
 };
 </script>

@@ -26,7 +26,7 @@
           </p>
         </UiCard>
 
-        <UiCard class="w-96 h-52 -mt-16 shadow-lg z-30 ml-auto px-2 pt-2.5">
+        <UiCard class="w-96 h-52 -mt-16 shadow-lg z-10 ml-auto px-2 pt-2.5">
           <div class="flex">
             <Icon icon="icon-park-outline:dot" width="18" height="18" style="color: #fe0000" />
             <Icon icon="icon-park-outline:dot" width="18" height="18" style="color: #0066fe" />
