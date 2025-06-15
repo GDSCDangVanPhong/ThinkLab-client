@@ -5,7 +5,9 @@
 <template>
   <div>
     <NuxtPage />
-    <UiToastToaster />
+    <ClientOnly>
+      <UiToastToaster />
+    </ClientOnly>
 
   </div>
 </template>

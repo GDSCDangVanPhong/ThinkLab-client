@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen items-center justify-between">
-    <div class="w-full md:w-1/2">
+    <div class="w-full md:w-1/2" v-if="isLoginWindow">
       <div class="mx-auto w-full max-w-[330px] px-5">
         <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Log in</h1>
         <p class="mt-1 text-muted-foreground">Enter your email & password to log in.</p>
@@ -23,10 +23,8 @@
             </UiButton>
           </fieldset>
         </form>
-        <p class="mt-8 text-sm">
-          <NuxtLink class="font-semibold text-primary underline-offset-2 hover:underline" to="#"
-          >Forgot password?</NuxtLink
-          >
+        <p class="mt-8 text-sm font-semibold text-primary underline-offset-2 hover:underline cursor-pointer " @click="isLoginWindow=false">
+          Forgot password?
         </p>
         <p class="mt-4 text-sm text-muted-foreground">
           Don't have an account?
@@ -35,6 +33,39 @@
           >
         </p>
       </div>
+    </div>
+    <div class="w-full md:w-1/2" v-if="!isLoginWindow">
+
+        <div class="relative flex h-screen items-center justify-center">
+          <div
+              class="absolute inset-0 z-[1] bg-[linear-gradient(to_right,theme(colors.border)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.border)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(circle,transparent_25%,theme(colors.border)_100%)]"
+          />
+          <div class="relative z-[2] w-full max-w-[340px] px-5">
+            <div
+                class="mx-auto mb-6 flex size-14 items-center justify-center rounded-lg border bg-background"
+            >
+              <Icon class="size-6" name="lucide:key-round" />
+            </div>
+
+            <div class="flex flex-col items-center text-center">
+              <h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Forgot Password</h1>
+              <p class="mt-1 text-muted-foreground">No worries, we'll send you reset instructions.</p>
+            </div>
+
+            <form class="mt-10" @submit="submit">
+              <fieldset :disabled="isSubmitting" class="grid gap-5">
+                <UiVeeInput label="Email" type="email" name="email" placeholder="john@example.com" />
+                <UiButton class="w-full" type="submit" text="Send instructions" />
+              </fieldset>
+            </form>
+            <p class="mt-8 text-sm font-semibold text-primary underline-offset-2 hover:underline cursor-pointer text-center" @click="isLoginWindow=true">
+              Back to Log in
+            </p>
+          </div>
+        </div>
+
+
+
     </div>
     <div class="hidden h-screen md:block md:w-1/2 lg:w-1/2">
 
@@ -64,7 +95,7 @@ const input = reactive<SignInRequest>(
       rawPassword : ""
     }
 );
-
+const isLoginWindow =ref(true)
 
 const LoginSchema = object({
   email: string().email().required().label("Email"),
@@ -76,15 +107,20 @@ const { handleSubmit, isSubmitting } = useForm<InferType<typeof LoginSchema>>({
 });
 
 const submit = handleSubmit(async () => {
-  const result = await useLogin(input)
-  if(!result){
-    useToast().toast(
-        {
-          variant: "destructive",
-          description: "Login failed.",
-        }
-    )
+  try{
+    const result = await useLogin(input)
+    if(!result){
+      useToast().toast(
+          {
+            variant: "destructive",
+            description: "",
+          }
+      )
+    }
   }
+  catch (error : any) {
+  }
+
 });
 
 const signInWithGoogle = () => {
