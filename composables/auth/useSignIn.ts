@@ -16,7 +16,7 @@ export const useLogin = async (signIn: SignInRequest) : Promise<boolean> => {
     };
 
     try {
-        const response = await $fetch<GraphQLResponse<{login :string}>>('http://3.104.220.132:8080/graphql', {
+        const response = await $fetch<GraphQLResponse<{login :string}>>('https://thinklab-server.duckdns.org/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
