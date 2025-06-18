@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* ===== Light Theme (Default) ===== */
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -24,6 +25,8 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -32,10 +35,10 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --sidebar-input: 240 3.7% 15.9%;
     --sidebar-input: 240 5.9% 90%;
   }
 
+  /* ===== Dark Theme ===== */
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -56,6 +59,7 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -66,20 +70,23 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
     --sidebar-input: 240 3.7% 15.9%;
   }
-}
 
-@layer base {
+  /* ===== Reset + Base Style ===== */
   * {
     @apply border-border;
   }
+
   html {
     @apply antialiased;
   }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
+
+/* ===== Float3D Animation ===== */
 .animate-float3d {
   width: 320px;
   height: 320px;
@@ -90,22 +97,17 @@
 @keyframes float3d {
   0% {
     transform: rotateX(5deg) rotateY(5deg) translateY(0) translateZ(0) scale(1);
-
   }
   25% {
     transform: rotateX(10deg) rotateY(15deg) translateY(-15px) translateZ(20px) scale(1.05);
-
   }
   50% {
     transform: rotateX(15deg) rotateY(10deg) translateY(-20px) translateZ(30px) scale(1.1);
-
   }
   75% {
     transform: rotateX(10deg) rotateY(5deg) translateY(-15px) translateZ(20px) scale(1.05);
-
   }
   100% {
     transform: rotateX(5deg) rotateY(5deg) translateY(0) translateZ(0) scale(1);
-
   }
 }

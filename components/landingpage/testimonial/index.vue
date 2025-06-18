@@ -36,7 +36,7 @@ const testimonials = [
 <template>
   <div class="relative h-[500px] w-full overflow-hidden  border-t ">
     <div class="mt-10 flex justify-center px-12">
-      <InspriraTestimonialSlider :testimonials="testimonials" />
+      <InspriraTestimonialSlider :testimonials="testimonials" class=""/>
     </div>
   </div>
 </template>

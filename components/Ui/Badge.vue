@@ -30,6 +30,7 @@
         true: "cursor-not-allowed opacity-50",
       },
       size: {
+        xs: "px-1.5 py-0.5 text-xs font-medium",
         sm: "px-2.5 py-0.5 text-xs font-medium",
         md: "px-2.5 py-1 text-sm font-semibold",
         lg: "px-3 py-1.5 text-sm font-semibold",

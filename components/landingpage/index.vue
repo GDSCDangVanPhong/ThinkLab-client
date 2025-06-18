@@ -1,14 +1,15 @@
 <script setup lang="ts">
 
+const isMobile = useMediaQuery('(max-width: 768px)')
 </script>
 
 <template>
-  <div class="mt-10">
+  <div class="md:mt-10 mt-5">
     <LandingpageNewsCTA/>
-    <div class="px-20 rounded-lg mb-20">
-      <LandingpageBanner class="w-full mt-10  "/>
+    <div class="md:px-20 md:mb-20">
+      <LandingpageBanner class="w-full md:mt-10 mt-4 "/>
       <div class="w-full border">
-        <LandingpageSuccessMetric class="w-full  border-b mb-5"/>
+        <LandingpageSuccessMetric class="w-full  border-b mb-5" :is-mobile="isMobile"/>
         <LandingpageFeatureSpliter class="border-b"/>
         <LandingpageConnectivity class="px-10"/>
         <LandingpageTestimonial/>

@@ -28,7 +28,7 @@
       </div>
     </div>
     <!-- Text -->
-    <div class="mb-8 transition-all delay-300 duration-150 ease-in-out">
+    <div class="md:mb-8 mb-1 transition-all delay-300 duration-150 ease-in-out">
       <div
           ref="testimonialsRef"
           class="relative flex flex-col"
@@ -41,7 +41,7 @@
               class="w-full"
           >
             <div
-                class="text-2xl font-bold text-zinc-900 before:content-['\201C'] after:content-['\201D'] dark:text-zinc-100"
+                class="md:text-2xl text-lg font-bold text-zinc-900 before:content-['\201C'] after:content-['\201D'] dark:text-zinc-100"
             >
               {{ testimonial.quote }}
             </div>
@@ -49,7 +49,7 @@
         </transition-group>
       </div>
     </div>
-    <div class="mt-4 flex w-full items-center justify-between gap-4 pt-12 md:pt-0">
+    <div class="md:mt-4 flex w-full items-center justify-between gap-4 pt-12 md:pt-0">
       <button
           class="group/button flex size-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
           @click="handlePrev"
