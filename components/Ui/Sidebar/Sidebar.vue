@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-  import { VisuallyHidden } from "radix-vue";
+
   import type { VariantProps } from "tailwind-variants";
   import type { HTMLAttributes } from "vue";
 
@@ -133,6 +133,8 @@
   };
 </script>
 <script setup lang="ts">
+  import { VisuallyHidden } from "radix-vue";
+
   defineOptions({ inheritAttrs: false });
 
   const props = withDefaults(defineProps<SideBarProps>(), {

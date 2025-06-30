@@ -10,7 +10,7 @@
     <div class="relative">
       <slot name="icon">
         <span v-if="hasIcon" class="absolute inset-y-0 left-3 flex items-center justify-center">
-          <Icon v-if="icon" :name="icon" class="h-4 w-4 text-muted-foreground/70" />
+          <Icon v-if="icon" :name="icon" class="h-4 w-4 c" />
         </span>
       </slot>
       <slot name="trailingIcon">

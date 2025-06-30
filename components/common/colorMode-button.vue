@@ -14,8 +14,7 @@
 
 
 <script setup lang="ts">
-// import {useUserColorMode} from "~/composables/common/useUserColorMode";
-// const {ColorMode, toggleColorMode } = useUserColorMode()
+
 import {Icon} from "@iconify/vue";
 
 </script>

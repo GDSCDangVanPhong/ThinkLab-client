@@ -1,4 +1,4 @@
-<template>
+`<template>
   <Primitive :class="styles({ sticky, class: props.class })" v-bind="forwarded">
     <slot />
   </Primitive>

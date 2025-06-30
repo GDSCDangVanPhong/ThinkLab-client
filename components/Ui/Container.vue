@@ -22,6 +22,6 @@
   const forwarded = reactiveOmit(props, "class");
 
   const styles = tv({
-    base: "container mx-auto",
+    base: "container ml-0.5",
   });
 </script>
