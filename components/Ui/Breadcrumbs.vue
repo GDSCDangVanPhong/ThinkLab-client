@@ -15,11 +15,11 @@
                     : 'text-primary',
                 ]"
               />
-              <img v-if="item.img" :src="item.img" alt="logo" class="w-6 h-6" />
+              <img v-if="item.img" :src="item.img" alt="logo" class="w-6 h-6 cursor-pointer" @click="navigateTo(item.link)" />
             </slot>
             <slot :item="item" :is-not-last-item="isNotLastItem" :index="i" name="link">
               <NuxtLink
-                v-if="item.label"
+                v-if="item.label || item.img"
                 :to="!item?.disabled ? item.link : ''"
                 :class="[
                   item.link && !item.disabled && 'underline-offset-2 group-hover:underline',

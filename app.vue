@@ -4,10 +4,13 @@
 
 <template>
   <div>
-    <NuxtPage />
-    <ClientOnly>
-      <UiToastToaster />
-    </ClientOnly>
+    <NuxtLayout>
+      <NuxtPage />
+      <ClientOnly>
+        <UiToastToaster />
+      </ClientOnly>
+    </NuxtLayout>
+
 
   </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <DropdownMenuItem v-bind="forwarded" :class="styles({ inset, class: props.class })">
     <slot>
+
       <slot name="icon">
         <Icon v-if="icon" :name="icon" class="h-4 w-4" />
       </slot>
@@ -26,6 +27,7 @@
       inset?: boolean;
       /** The shorttcut text to display */
       shortcut?: string;
+
       /** The title text to display */
       title?: string;
       /** The icon to display */

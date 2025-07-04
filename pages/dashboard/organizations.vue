@@ -16,7 +16,7 @@
   <div class="w-full " >
     <UiNavbar class="w-full px-4 py-3 flex justify-between">
       <UiBreadcrumbs separator="lucide:slash" :items="items"  />
-      <div class="flex space-x-3">
+      <div class="flex space-x-3 ">
       <UiButton size="xs" variant="outline">Feedback</UiButton>
         <AvartarDropDown class="cursor-pointer"/>
       </div>
