@@ -24,6 +24,7 @@ export const buttonStyles = tv({
         "relative after:absolute after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100",
     },
     size: {
+      xxs :"h-6 px-1.5",
       xs: "h-8 px-2",
       sm: "h-9 px-3",
       default: "h-10 px-4 py-2",

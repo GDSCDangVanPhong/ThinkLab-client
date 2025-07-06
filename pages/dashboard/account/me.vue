@@ -16,21 +16,17 @@ const items: Crumbs[] = [
       content: "This is the overview. Here you can see the overview of the project.",
     },
     {
-      title: "Projects",
+      title: "Security",
       icon: "lucide:panels-top-left",
       content: "These are the number of outstanding projects.",
     },
-    {
-      title: "Packages",
-      icon: "lucide:box",
-      content: "You have a few new packages awaiting your approval.",
-    },
+
   ];
   const theme = useColorMode()
   onMounted(()=>{
     console.log(theme.preference);
   })
-
+  const router = useRouter();
 </script>
 
 <template>
@@ -48,7 +44,7 @@ const items: Crumbs[] = [
       <span>
         <Icon icon="lucide:move-left" class="w-4 h-4" />
       </span>
-      <span class="text-xs">
+      <span class="text-xs" @click="router.back()">
         Back to dashboard
       </span>
     </span>
@@ -163,7 +159,7 @@ const items: Crumbs[] = [
                           <input
                             type="radio"
                             value="dark"
-                            class="light:accent-black dark:accent-white"
+                            class="accent-black dark:accent-white"
 
                             :checked="theme.preference == 'dark'"
                           />
@@ -178,7 +174,7 @@ const items: Crumbs[] = [
                           <input
                             type="radio"
                             value="dark"
-                            class="light:accent-black dark:accent-white"
+                            class="accent-black dark:accent-white"
 
                             :checked="theme.preference =='light'"
                           />
@@ -193,8 +189,7 @@ const items: Crumbs[] = [
                           <input
                             type="radio"
                             value="dark"
-                            class="light:accent-black dark:accent-white"
-
+                            class="accent-black dark:accent-white"
                             :checked="theme.preference =='system'"
                           />
                           <span >
@@ -223,7 +218,27 @@ const items: Crumbs[] = [
                 </UiCardContent>
               </UiCard>
             </UiTabsContent>
+            <UiTabsContent value="Security" class="w-full">
+              <div class=" w-full">
+                <UiCard class="w-full">
+                  <UiCardHeader class="p-4 opacity-75 ">
+                    <div class="flex items-center">
+                      <Icon icon="fluent:phone-32-light" width="16" height="16" />
+                      <p class="font-bold ml-4 opacity-75 ">Authenticator app </p>
+                      <UiBadge variant="outline"  size="xs" class="ml-auto ">0 app configured</UiBadge>
+                    </div>
 
+                  </UiCardHeader>
+                  <UiDivider/>
+                  <UiCardContent>
+                    <p class="text-xs opacity-75">
+                      Generate one-time passwords via authenticator apps like 1Password, Authy, etc. as a second factor to verify your identity during sign-in.
+                    </p>
+                    <UiButton size="xs" class="bg-emerald-500 hover:bg-emerald-700 mt-2 text-xs">Add new app</UiButton>
+                  </UiCardContent>
+                </UiCard>
+              </div>
+            </UiTabsContent>
           </UiTabs>
         </div>
       </UiTabsContent>

@@ -183,7 +183,7 @@
       rowsPerPageText?: string;
     }>(),
     {
-      pageSizes: () => [10, 20, 30, 40, 50, 100],
+      pageSizes: () => [2,10, 20, 30, 40, 50, 100],
       pageSize: () => 10,
       columns: () => [],
       data: () => [],

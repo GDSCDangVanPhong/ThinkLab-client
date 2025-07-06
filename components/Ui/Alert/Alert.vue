@@ -13,10 +13,10 @@
           <UiAlertTitle v-if="title" :title="title" />
         </slot>
         <slot name="description">
-          <UiAlertDescription v-if="description" :description="description" />
+          <UiAlertDescription class="text-xs" v-if="description" :description="description" />
         </slot>
         <slot name="button">
-          <UiButton v-if="button" class="text-xs  mt-3" size="xs" variant="destructive" >
+          <UiButton v-if="button" class="text-xs  mt-3" size="xxs" variant="destructive" >
             {{button}}
           </UiButton>
         </slot>
