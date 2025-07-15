@@ -12,11 +12,17 @@
     </UiNavbar>
     <div class="flex-1  flex">
       <DashboardTLSideBar />
-      <div class="ml-12 p-5 flex-1 overflow-auto" style="z-index: 0;">
+      <div class="ml-12 p-5 flex-1 overflow-auto" style="z-index: 0;" v-if="tabStore.tab!= 'Usage'">
         <DashboardTeam v-if="tabStore.tab == 'Team' "/>
         <DashboardBilling v-if="tabStore.tab == 'Billing'"/>
         <DashboardOrganizationSetting v-if="tabStore.tab == 'Settings'"/>
+        <DashboardIntegrations v-if="tabStore.tab == 'Integrations'"/>
+        <tiptap v-if="tabStore.tab == 'Playground'" class="h-full"/>
       </div>
+      <div v-if="tabStore.tab == 'Usage'" class="flex-1 overflow-auto" style="z-index: 0">
+        <DashboardTasksVisualizer />
+      </div>
+       
     </div>
   </div>
 </template>

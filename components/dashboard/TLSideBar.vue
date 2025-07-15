@@ -3,7 +3,7 @@
     class="fixed left-0  h-screen border-r  transition-all duration-300 z-10 overflow-hidden"
     @mouseenter="openSidebar"
     @mouseleave="closeSidebar"
-    :class="isOpen ? 'w-44 bg-white dark:bg-black' : 'w-14'"
+    :class="isOpen ? 'w-44 bg-white dark:bg-black' : 'w-14 bg-white dark:bg-black '"
   >
     <ul class="mt-5 space-y-2.5 px-1.5">
       <li
@@ -42,8 +42,7 @@
 
 
   const changingTab = (nextTab: string) => {
-    tabStore.changeTab(nextTab)
-
+    tabStore.changeTab(nextTab) 
   }
   const openSidebar = () => (isOpen.value = true)
   const closeSidebar = () => (isOpen.value = false)

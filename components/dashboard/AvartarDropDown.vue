@@ -22,7 +22,7 @@
             :title="item.title"
             :icon="item.icon"
             @click ="item.link && navigateTo(item.link)"
-            class="cursor-pointer opacity-65"
+            class="cursor-pointer opacity-65 "
           />
           <UiDropdownMenuSub v-else-if="item.title && item.items">
             <UiDropdownMenuSubTrigger

@@ -31,6 +31,9 @@
         <UiTabsContent value="General">
           <DashboardSettingtabGeneral/>
         </UiTabsContent>
+        <UiTabsContent value="Audit">
+          <DashboardSettingtabAuditLogs/>
+        </UiTabsContent>
       </UiTabs>
     </div>
   </div>
