@@ -3,7 +3,7 @@
     <slot>
       <UiSelectValue :placeholder="placeholder" />
     </slot>
-    <UiSelectIcon :icon="icon" />
+    <UiSelectIcon :icon="icon" v-if="trailingIcon" />
   </SelectTrigger>
 </template>
 
@@ -19,6 +19,7 @@
       icon?: string;
       /** Placeholder text */
       placeholder?: string;
+      trailingIcon? : boolean
     }
   >();
   const forwarded = reactiveOmit(props, "class", "icon", "placeholder");
