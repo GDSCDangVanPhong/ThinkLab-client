@@ -6,10 +6,10 @@
         <div
           class="flex items-center gap-1 border-b-0 rounded-tl-md rounded-tr-md border border-input bg-transparent p-1 w-full justify-center"
         >
-          <UiButton variant="ghost">
+          <UiButton variant="ghost" @click="editor.commands.undo()">
               <Icon icon="material-symbols:undo-rounded" width="20" height="20" />
           </UiButton>
-          <UiButton variant="ghost">
+          <UiButton variant="ghost" @click="editor.commands.redo()">
               <Icon icon="material-symbols:redo-rounded" width="20" height="20" />
           </UiButton>
           <div class=" h-7 ">
@@ -20,16 +20,26 @@
               v-model="heading"
             >
               <UiSelectTrigger placeholder="H1" :trailing-icon="false" class="justify-center border-none hover:bg-secondary" />
-              <UiSelectContent class >
-              <UiSelectGroup>
+              <UiSelectContent  >
+              <UiSelectGroup >
+                <UiSelectItem value="P">P</UiSelectItem>
                 <UiSelectItem value="H1">H1</UiSelectItem>
                 <UiSelectItem value="H2">H2</UiSelectItem>
                 <UiSelectItem value="H3">H3</UiSelectItem>
               </UiSelectGroup>
             </UiSelectContent>
             </UiSelect>
-            
+
           </div>
+          <UiButton variant="ghost" @click="editor.commands.redo()">
+            <Icon icon="hugeicons:text-align-left" width="16" height="16" />
+          </UiButton>
+          <UiButton variant="ghost" @click="editor.commands.redo()">
+            <Icon icon="hugeicons:text-align-center" width="16" height="16" />
+          </UiButton>
+          <UiButton variant="ghost" @click="editor.commands.redo()">
+            <Icon icon="hugeicons:text-align-right" width="16" height="16" />
+          </UiButton>
         </div>
         <EditorContent :editor="editor" class="max-w-5/6" />  
       </div>
@@ -70,6 +80,8 @@
   import StarterKit from "@tiptap/starter-kit";
   import { EditorContent, useEditor } from "@tiptap/vue-3";
   import { Icon } from "@iconify/vue";
+  import TextAlign from '@tiptap/extension-text-align'
+
   const model = defineModel<any>({ default: "" });
 
   const props = withDefaults(
@@ -113,7 +125,9 @@
       }),
       Superscript,
       SubScript,
-    
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
       Typography,
       Highlight,
       TableRow,
@@ -122,26 +136,64 @@
       TableCell,
     ],
   });
-  const heading =ref('')
+  const heading =ref('P')
   const changingHeading = watch(heading , ()=>{
-    
-    
+    if(heading.value == 'P'){
+      editor.value?.chain().focus().setParagraph()
+    }
     if(heading.value == 'H1'){
       editor.value?.chain().focus().setHeading({level:1}).run()
-      console.log('Trigg1')
     }
     else if(heading.value =='H2'){
       editor.value?.chain().focus().setHeading({level:2}).run()
-            console.log('Trigg2')
-
     }
-    else{
+    else if(heading.value == 'H3'){
       editor.value?.chain().focus().setHeading({level :3}).run()
-            console.log('Trigg3')
-
     }
-
   })
 
 </script>
-<
+<style lang="scss">
+  /* Basic editor styles */
+  .tiptap {
+    :first-child {
+      margin-top: 0;
+    }
+
+    /* Heading styles */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 1.1;
+      margin-top: 2.5rem;
+      text-wrap: pretty;
+    }
+
+    h1,
+    h2 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    h4,
+    h5,
+    h6 {
+      font-size: 1rem;
+    }
+  }
+</style>
